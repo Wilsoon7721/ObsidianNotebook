@@ -1,5 +1,5 @@
 
-#### 1. General
+#### 1. Introduction
 
 Python is a popular programming language as it is easy to learn and read. It can be used for many purposes such as web development, data analysis, artificial intelligence, and scripting. Python also supports Object-Oriented Programming (OOP).
 
@@ -139,3 +139,275 @@ if my_list:
     print("'my_list' is not empty.")
 ```
 
+
+#### 5. Functions
+
+When you first start writing code, your first program may be to simply print "Hello World!". In order to accomplish this in Python, the `print()` function is called in your program, and the message is outputted as intended.
+
+`print()` is one of the many functions built-in to the Python language, and a function refers to **a reusable piece of code that performs one or multiple tasks.** The piece of code is encapsulated into a named block, which can be called at any time whenever the same task needs to be performed multiple times.
+
+In Python, functions can be defined with the `def` parameter before the function name. Similar to variables, functions do not have to specify a data type to indicate the return result.
+
+Example Scenario:
+```
+Calculate the area of three different circles.
+The 1st circle has a radius of 6, the 2nd circle has a radius of 8 and the last circle has a radius of 13.
+```
+
+The code would look like:
+```python
+pi = 3.14159
+def calculate(radius):
+    return pi * radius ** 2
+
+circle1_area = calculate(6)
+circle2_area = calculate(8)
+circle3_area = calculate(13)
+print("The area of circle 1 is", circle1_area)
+print("The area of circle 2 is", circle2_area)
+print("The area of circle 3 is", circle3_area)
+```
+
+From the code example, instead of performing the calculation 3 separate times with different radius values, the definition of `calculate()` allowed the program to be shortened, which overall allows the code to look cleaner.
+
+##### 5.1: Function Parameters
+
+As seen above, some functions take in **parameters**, and you are able to create your own functions that accept parameters too. In Python, if you run a function without inputting the required parameters, the IDE may throw a warning. However, you can choose to ignore the warning if you intended on running the function without giving the parameters.
+
+Parameters are also similar to variables in Python such that they **do not have** any specific data type. As such, the user running your function can choose to put any parameter they want, and your code has to handle anything you don't want the function to process. However, **type hints** can be provided in your functions to drop a hint on what type you want the parameter to be. However, it **does not force** the user to give that specific data type.
+
+Example:
+```python
+def add(a: float, b: float, c: float):
+	if isinstance(a, float) and isinstance(b, float) and isinstance(c, float):
+	    return a + b + c
+	return "Invalid parameters given."
+
+result = add("not a float", 10.5, 12.6)
+print(result)
+```
+
+In the example shown, `a`, `b` and `c` are parameter names, and adding `: (type)` behind the parameter name created a type hint of `float`, hinting to the user and compiler that `a`, `b` and `c` should be floats.
+
+Within the code itself, there's a built-in function known as `isinstance(value, type)` that accepts a value as the first parameter, and a type as the second. The purpose of the `isinstance(value, type)` function is to check if a value is an instance of a type. In this case, it checks if `a`, `b`, `c` are all instances of `float`, and using the `and` keyword, only allows the program to `return` the computation of all 3 when the condition is `True`.
+
+In the case of the example shown, the result is `Invalid parameters given.` since the first parameter given is not a `float`, but a `string`.
+
+#### 6. Decision Making
+
+Like many other programming languages, Python provides decision making statements in the form of `if`, `elif`, and `else` statements.
+
+Remember that once the first condition is met, the entire code block is exited and the other conditions will not be evaluated.
+
+A full if-elif-else code block looks like the following:
+```python
+if condition:
+    read_something()
+elif second_condition:
+    draw_something()
+elif third_condition:
+    send()
+else:
+    delete_everything()
+    
+print("The program will continue from here.")
+```
+
+As the if statement starts the code block, it is **compulsory**. The `elif` and `else` portions are not compulsory. If there is no `else` statement, the program directly skips to the code block below the entire `if` block.
+
+From the code example above, the if the first condition is met, it performs the `read_something()` function and continues to the `print()` statement below. However, if the first condition is not met, it moves onto the first `elif` block, which checks for whether `second_condition` is met. If so, it runs `draw_something()` and moves on to the `print()` statement. However, if `second_condition` is not met, it moves on to check `third_condition`, and runs `send()` if the condition is met before exiting to the `print()` statement below. However, if none of the conditions are met, the code block in the `else` statement will run, which performs the `delete_everything()` function, before exiting to the print() statement.
+
+Regardless of which condition is met, after the entire if-elif-else block finds its first met condition, the code within that specific condition block will be ran, and the program will skip the remaining checks and move on to the code below the entire `if-elif-else` block.
+
+As such, when you are programming, it is important to order your conditions properly such that your intended result is reached.
+
+#### 7. Operators
+
+General operators:
+   - `==` (equal to)
+   - `!=` (not equal to)
+
+
+##### 7.1: Numeric Operators
+
+Numeric Operators refer to your regular operators that you may perform in Mathematics, such as:
+   - `+` (add)
+   - `-` (subtract)
+   - `*` (multiply)
+   - `**` (exponentiation)
+   - `/` (divide)
+   - `//` (floor divide)
+   - `%` (modulo)
+
+There are also the usual comparison operators:
+   - `>` (greater than)
+   - `<` (less than)
+   - `>=` (greater than or equal to)
+   - `<=` (less than or equal to)
+
+
+
+For each of the numeric operators, there is a variation of it, where a `=` is added behind the operator, such as `+=`, `-=`, `*=`, `**=`, `/=`, `//=`, `%=`. These are called assignment operators, so something like "modulo assignment operator" would refer to the `%=` operator. An example of how the multiplication assignment operator is used is shown below:
+```python
+# Declare variable x
+x = 14
+print(x) # Prints '14'
+
+# Multiply x by 2, and assign it back to x.
+x *= 2
+print(x) # Prints '28'
+```
+
+In the example, `x` is first declared as 14 and printed. Then, the `x *= 2` is performed and `x` is printed again. This time, `x` becomes 28. This is because `x *= 2` is the same thing as `x = x * 2`, which multiplies x by 2, but instead of assigning to another variable, the program assigns the new value back to the same value. As such:
+```python
+x = 15
+
+x * 5
+
+x *= 2
+```
+
+The computation `x * 5`  multiplies `x` by 5 but doesn't assign the new value to any variable, as such the result is not saved. However, `x *= 2` multiplies `x` by 2 and assigns the new value back to `x`, causing `x` to become 30. As such, these operators are known as **assignment operators**.
+
+Exponentiation raises the value's power to that of the right side. Example: `b = 2 ** 4` will cause `b` to have a value of `2^4` which is 16.
+
+Floor division is the same as regular division, just that instead of returning the full value with the decimals, it returns the **nearest whole number**.
+
+Modulo returns the **remainder** of a division instead of the quotient.
+
+
+##### 7.2: Logical Operators
+
+Logical Operators refer to symbols or a word used to combine or manipulate boolean expressions.
+The 3 most common logical operators are:
+   - `AND` 
+   - `OR` 
+   - `NOT` 
+
+Example:
+```python
+a = True 
+b = False
+if a and b:
+    print("Both 'a' and 'b' are True!")
+
+if a or b:
+    print("Either 'a' or 'b' is True!")
+
+if not a and not b:
+	print("Both 'a' and 'b' are False!")
+```
+
+From the provided example, only the middle `print()` statement will pass, and the resulting code will print `Either 'a' or 'b' is True!`. The displayed example shows the usage of `AND`, `OR` and `NOT` to modify how the program evaluated each of the conditions.
+
+While the first two are self-explanatory, the third one may require some explanation.
+
+`not a` changes the check for the boolean `a`, so instead of checking whether `a` is True, the program instead checks if `a` is False. Similarly, `not b` causes the program to check whether `b` is False instead of `True`. The `and` keyword then joins both the conditions together, causing the code to check if both a and b is False before executing the code block. Of course, the code block didn't run because the initialized variables show that only `b` is False.
+
+
+#### 8. Loops
+
+Apart from `if` statements which asks the program to make decisions, loops allow the program to repeat a specific task repeatedly. This is achieved using the `for` loop and `while` loop.
+
+
+##### 8.1: The For Loop
+
+The syntax of a `for` loop is as follows:
+```python
+for something in iterable:
+    # do this
+```
+Do take note that `something` and `iterable` are just variable names to display its purpose easier, and can be renamed anything you deem fit.
+
+`iterable` usually refers to anything that can be repeated over and over again. Iterable data types usually refer to lists, sets and dictionaries, as these data types are most commonly used whenever there's a need to perform an action on all elements inside the object one by one.
+
+In the above syntax, it translates to "for each item in `iterable`, assign the item to `something`, and perform the code inside the `for` block."
+
+An example of the `for` loop is as follows:
+```python
+alphabets = ['abc', 'def', 'ghi', 'jkl', 'mno', 'pqr', 'stu', 'vwx', 'yz']
+for value in alphabets:
+	print(value)
+```
+
+This code will print the following:
+```
+abc
+def
+ghi
+jkl
+mno
+pqr
+stu
+vwx
+yz
+```
+
+From what you see here, each item inside the list was taken out, the item is then assigned to the `value` variable before `print(value)` is ran. This means that the `for` loop caused its code block to run 9 times, each with a different value from the list. The `for` loop retrieved each of the values in the order they were defined and printed them out one by one.
+
+Another example of the `for` loop is as follows:
+```python
+numbers = [19, 519, 616, 123, 851, 167]
+total = 0
+
+for numb in numbers:
+    total += numb
+
+print(total)
+```
+
+This code defines a list of numbers and a variable `total` set to 0. The `for` loop then gets each number from the list and sets `numb` to the value of each number, before running `total += numb`, which adds the value into the total. This process is then repeated for all the numbers in the list. 
+
+After finishing the loop, the program moves on to the code after the `for` loop, which prints the `total` variable out which is `2295`. 
+
+
+##### 8.2: The While Loop
+
+The syntax of a `while` loop is as follows:
+```python
+while condition:
+    # What should the program do while the condition is NOT met.
+
+# Continue
+print("The condition was met.")
+```
+
+A `while` loop performs a piece of code continuously until a specific condition is met.
+
+An example is below:
+```python
+i = 0
+
+while i < 10:
+    print(i)
+    i += 1
+
+print("The value of i has reached 10.")
+```
+
+In the above example, `i` is first initialized with a value of 0. Inside the `while` loop, the condition is set to `i < 10`, and the code inside will print the value of `i` before increasing `i` by 1. 
+
+From the code, the program checks if `i` is less than 10. 
+ - If yes, `i` is printed before being increased by 1. 
+ - Then, `i` is checked again for whether its less than 10. 
+ - If yes, the same process is repeated continously until `i` is no longer less than 10. 
+ - When that happens, the `print()` below is printed, saying that the value of `i` has reached 10.
+
+
+#### 9. Flow Control
+
+There are 3 keywords in Python that help to control the code flow. They are `return`, `break` and `continue`.
+
+
+#### 10. File Operations
+
+
+
+
+#### 11. External Libraries
+
+
+
+#### End: Commonly used built-in functions
+
+Over here, you will find different built-in functions that help you to achieve different functionalities, such as asking for input or getting the maximum or minimum value from an iterable.
