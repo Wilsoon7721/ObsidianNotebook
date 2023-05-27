@@ -75,6 +75,13 @@ capital_cities = {
 
 After creating a dictionary like this, you may obtain the capital city of a country by using `capital_cities.get(key)`. Something like `capital_cities.get('Nepal')` will return `Kathmandu`.
 
+Apart from using `.get(key)`, you may directly obtain the value using `capital_cities[key]`. An example would be like so:
+```python
+capital_england = capital_cities['England']
+print(capital_england)
+```
+
+The code above would output `London`. As such, it shows that there are many ways of obtaining the same result, and it's up to you which one you prefer.
 
 **set**: A set is an mutable, unordered collection of unique elements. Sets do not allow duplicate values and provide specific set operations such as union, intersection etc. More information on how to create a set is below.
 
@@ -82,6 +89,21 @@ After creating a dictionary like this, you may obtain the capital city of a coun
 
 **complex**: <u>You may not need to use this regularly as it is primarily meant for squaring an negative power.</u> A complex comes in the form of `a + bj`, where `a`  and `b` refer to real numbers while `j` is an imaginary value. More information on how to create a complex is below.
 
+##### Sets, Lists, Tuples, and the Index Notation
+
+Index Notation is used to identify the elements and their positions inside lists, sets, and tuples.
+
+Simply put, elements in a collection start with `0` instead of `1`. For example,
+```python
+numbers = [0, 21, 516, 61, 134]
+
+number = numbers[2]
+print(number)
+```
+
+The above example will print `516`.  In index notation, the first value has an index of `0`. As such, the element at index `2` would refer to `516`. 
+
+This logic applies to sets, lists, and tuples in Python, and is used in many popular programming languages. However, different languages may have their own ways of accessing the collection, with some using `.get(index)`, and others using regular brackets (`( )`) instead of square brackets (`[ ]`).
 
 ##### Creating and Manipulating Data Types
 
@@ -390,24 +412,131 @@ In the above example, `i` is first initialized with a value of 0. Inside the `wh
 From the code, the program checks if `i` is less than 10. 
  - If yes, `i` is printed before being increased by 1. 
  - Then, `i` is checked again for whether its less than 10. 
- - If yes, the same process is repeated continously until `i` is no longer less than 10. 
- - When that happens, the `print()` below is printed, saying that the value of `i` has reached 10.
+ - If yes, the same process is repeated continuously until `i` is no longer less than 10. 
+ - When that happens, the `print()` statement below is executed, stating that the value of `i` has reached 10.
 
 
 #### 9. Flow Control
 
-There are 3 keywords in Python that help to control the code flow. They are `return`, `break` and `continue`.
+There are 3 keywords in Python that help to control the code flow. They are `return`, `break` and `continue`. 
+
+The `return` statement is used only in functions to end the function's execution and return a result at the end of the function. However, it is **not compulsory** to `return` anything. When no `return` statement is provided, Python will automatically `return` the default value of `None`.
+
+The `continue` and `break` statements are used only in loops such as the `while` and `for` loops.
+The `break` statement stops all future iterations of the loop, and skips to the code below the loop, while the `continue` statement skips the current iteration of the loop, but does not stop future iterations.
+
+Example:
+```python
+def add_five_to_value(number):
+	return number + 5
+
+numbers = [15, 18, 61, 71, 12, 16, 86, 92]
+results = []
+for i in numbers:
+	if i == 61:
+	    results.append(i) 
+	    continue
+	if i == 12:
+		break
+	result = add_five_to_value(i)
+	results.append(result)
+
+print(results)
+```
+
+The code demonstrates the use of both the `continue` and `break` statements.
+
+Firstly, a function `add_five_to_value()` is defined which accepts a parameter called `number`. The function then returns a value of `number + 5`. Then, a list of 8 numbers is initialized and set to `numbers`. Another empty list is set to `results` as well. 
+
+In the `for` loop, the program loops through each of the numbers in the original list, and does the following checks:
+  1. If `i` is equal to 61, directly append `i` (61) to the results list, before executing `continue` which prevents the rest of the code in the loop from running. However, the `for` loop will not end there and continues to loop through the other numbers.
+  
+  2. If `i` is equal to 12, execute `break` which stops the rest of the code in the loop from running, and also stops the other numbers from being looped through. As such, the `for` loop ends there and the program skips to the code below the `for` loop, which prints the `results` list.
+
+As such, the output of this program will be `[20, 23, 61, 76]`.
 
 
 #### 10. File Operations
 
 
+##### The open() function
 
 
-#### 11. External Libraries
+File operations can be performed using built-in functions such as `open()`.
+
+The syntax of the `open()` function is `open(filename, mode)`.
+
+`filename` refers to the name of the file you want to open. By default, if no file path is specified, Python searches for the file in its current directory (where your project and `.py` file may be).
+
+`mode` should be a String value, and there are 7 valid modes, and 2 different types:
+ 1. `r` - read only
+ 3. `w` - write only
+ 4. `a` - append only
+ 5. `r+` - read and write. If the file doesn't exist, an exception is raised.
+ 6. `w+` - read and write. If the file doesn't exist, the file will be created.
+ 7. `a+` read and append. If the file doesn't exist, the file will be created.
+ 8. `x` - create the file and open as write. If the file already exists, an exception is raised.
+Types:
+ 1. `b` - open file in binary
+ 2. `t` - open file in text (default)
+
+Files are made up of a sequence of bytes, and each byte represents a unit of data within the file. When a file is opened in binary mode, it allows you to read and modify the file at the byte level. 
+
+However, modifying files at byte level should be done with caution as randomly modifying files at byte level may cause the file to become corrupted. 
+
+To specify the type, you may specify either `b` or `t` before the `+` sign, something like `rb` (read binary), `wb` (write binary) or `rb+` (read and write in binary).
+
+##### Handling the file 
+
+When files are opened, the handle to the file must also be closed when you are done reading or modifying the file.
+
+```python
+# Open `file.txt` in read mode.
+f = open("file.txt", 'r')
+
+# Read the data using the read() method and assign it to 'data'.
+data = f.read()
+
+# Close the file handle.
+f.close()
+```
+
+It is important to close file handles after you have finished reading or modifying the files. Some reasons may include:
+1. Resource Management - When files are opened, the system allocates memory and other resources to keep the file open. If the file isn't closed, the system will continue to allocate its resources to the file, resulting in resource leaks which could cause the system to crash due to high memory usage and other potential issues.
+
+2. File Locks - When a file is opened by your program, other programs may not be able to access the file as the program places a lock on the file, informing other processes that your program is currently reading or modifying the file contents. This ensures that your program's file modifications can be saved properly without interruptions from other processes. However, if the file handle isn't closed, the lock remains on the file and other processes that require the file cannot access it, which could cause other processes to crash.
+
+3. Data Integrity - When you write data to a file, the written data may remain in the memory, with the data only being written to the file right before the file handle is closed. This is used to improve efficiency by reducing the amount of times a write operation has to be done. As such, if the file handle is not closed, data may be partially saved or not saved at all, resulting in data loss. 
+
+With that being said, there is code you can implement in Python that ensures that file handles are closed automatically when you are done with your code. An example is the `with` statement, with the syntax as such:
+```python
+with <expression> as <variable>:
+    # Code Block
+```
+
+With the introduction of `with` and `as`,  performing file operations can be done as such:
+```python
+with open("diary.txt", 'r') as diary:
+	data = diary.read()
+	# Perform other file operations
+
+print(data)
+```
+
+After the file is read inside the `with` block, the file handle is closed automatically without the need for `diary.close()`. This helps to keep the code clean while ensuring that resources are released when no longer needed.
+
+
+#### 11. Exception Handling
+
+Errors, also known as exceptions, occur in every programming language. Simply put, they are unexpected issues that are raised by the program when it's attempting to perform its task. Unexpected exceptions that are not caught cause the program to stop. However, if you know that the exception is going to occur, and want the program to continue running or want the program to print out the error, you may use the `try-except` block in Python to achieve this purpose. 
 
 
 
-#### End: Commonly used built-in functions
+#### 12. External Libraries
+
+
+
+#### End: Conclusion and other useful things.
+
 
 Over here, you will find different built-in functions that help you to achieve different functionalities, such as asking for input or getting the maximum or minimum value from an iterable.
