@@ -418,7 +418,7 @@ From the code, the program checks if `i` is less than 10.
 
 #### 9. Flow Control
 
-There are 3 keywords in Python that help to control the code flow. They are `return`, `break` and `continue`. 
+There are 3 keywords in Python that help to control the code flow. They are `return`, `break`, `continue`. 
 
 The `return` statement is used only in functions to end the function's execution and return a result at the end of the function. However, it is **not compulsory** to `return` anything. When no `return` statement is provided, Python will automatically `return` the default value of `None`.
 
@@ -454,6 +454,11 @@ In the `for` loop, the program loops through each of the numbers in the original
   2. If `i` is equal to 12, execute `break` which stops the rest of the code in the loop from running, and also stops the other numbers from being looped through. As such, the `for` loop ends there and the program skips to the code below the `for` loop, which prints the `results` list.
 
 As such, the output of this program will be `[20, 23, 61, 76]`.
+
+
+Another keyword that doesn't control the flow of the program, but is still useful is `pass`. 
+
+The `pass` statement is simply a placeholder for future code, or to mark a loop or `if` statement purposely left empty. Nothing happens when the program executes it. However, since empty loops and statements are not allowed in Python, this statement is here to prevent those errors from occurring. 
 
 
 #### 10. File Operations
@@ -530,7 +535,7 @@ After the file is read inside the `with` block, the file handle is closed automa
 
 Errors, also known as exceptions, occur in every programming language. Simply put, they are unexpected issues that are raised by the program when it's attempting to perform its task. Unexpected exceptions that are not caught cause the program to stop. However, if you know that the exception is going to occur, and want the program to continue running or want the program to print out the error, you may use the `try-except` block in Python to achieve this purpose. 
 
-
+A 
 
 #### 12. External Libraries
 
