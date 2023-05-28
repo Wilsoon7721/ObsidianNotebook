@@ -1,3 +1,4 @@
+### Basics
 
 #### 1. Introduction
 
@@ -533,16 +534,99 @@ After the file is read inside the `with` block, the file handle is closed automa
 
 #### 11. Exception Handling
 
-Errors, also known as exceptions, occur in every programming language. Simply put, they are unexpected issues that are raised by the program when it's attempting to perform its task. Unexpected exceptions that are not caught cause the program to stop. However, if you know that the exception is going to occur, and want the program to continue running or want the program to print out the error, you may use the `try-except` block in Python to achieve this purpose. It is beneficial to know that different scenarios may cause the same error, so you should not tie one specific error to only one scenario.
+Errors, also known as exceptions, occur in every programming language. Simply put, they are unexpected issues that are raised by the program when it's attempting to perform its task. Unexpected exceptions that are not caught cause the program to stop. However, if you know that the exception is going to occur, and want the program to continue running or want the program to print out the error, you may use the `try-except` block in Python to achieve this purpose. 
+
+It is very beneficial to know that different scenarios may cause the same error, so you should not tie one specific error to one specific scenario.
 
 There are many different errors you may experience, such as:
-   1. ValueError
-   2. TypeError
-   3. FileNotFoundError
-   4. FileExistsError
-   5. IndexError
-   6. ZeroDivisionError
-   7. KeyError
+   1. ValueError - a reason why this may occur is if you are trying to convert a value using functions such as `int()`, `float()` or `str()`, and the value cannot be converted, it raises a ValueError.
+   2. TypeError - a reason why this may occur could be if you are trying to concatenate a String and an Integer together.
+   3. FileNotFoundError - As the error says, this error could most likely be raised if the file you are trying to `open()` cannot be found. Files will automatically be created if the `open()` mode is set to write or any other equivalent. However, if the file is opened in read mode and the file does not exist, a `FileNotFoundError` is raised instead.
+   4. FileExistsError - As the error says, this error could most likely be raised by the `open()` mode set to `x`, also known as exclusive creation mode. In this mode, if the file doesn't exist, it is automatically created and the `open()` method is set to write. However, if the file already exists, a `FileExistsError` is raised instead.
+   5. IndexError - IndexError could most likely be raised by attempting to access a list index that does not exist. Creating a variable like `my_list = [713, 1223, 6723]` and trying to run `number = my_list[5]` will raise this error as the index `5` does not exist in `my_list`.
+   6. ZeroDivisionError - As the error says, this error is most likely raised by attempting to divide a value by zero.
+   7. KeyError - A KeyError could most likely be caused by attempting to access a key in a dictionary which does not exist. Creating a dictionary like so: `bio = {"Name": "John", "Number": 12345678, "Country of Residence": "Singapore"}` and performing something like `print(bio['occupation'])` will raise the KeyError.
+
+Handling exceptions can be done in many ways, with this being one of the most common ones:
+```python
+try:
+    # Do your code that may or may not raise an error.
+except ValueError:
+    # A ValueError actually got raised, what should the code do.
+```
+In this above code, the `try-except` block does not have any direct access to the error itself. It just knows that the type of error that was thrown is a `ValueError`.
+
+However, you can change that by including the `as` statement too.
+```python
+try:
+    # Do your code that may or may not raise an error.
+except ValueError as e:
+    # A ValueError actually got raised, and the actual exception is `e`.
+    print("Error occurred:", str(e))
+```
+
+In this modified code, the actual exception is assigned to the `e` variable using `except ValueError as e`. The error is then printed out by the `print()` statement, which converts `e` to a string using `str()`. This shows the error message in an easy-to-read format.
+
+`try-except` blocks can also be nested and stacked.
+An example would be:
+```python
+try:
+    try:
+        result = 95 / 0
+    except ZeroDivisionError as e:
+        # Handle ZeroDivisionError
+        print("Error: You divided by zero.", e)
+    except ValueError as e:
+        # Handle ValueError
+		print("Error: A value was wrongly parsed.", e)
+except Exception as e:
+    # Handle any other exception
+    print("Error:", e)
+```
+
+If you are unsure of which exception to place in the `except` block, you may decide to use the same `except` block for all errors, which can be achieved in two different ways:
+
+First method:
+```python
+try:
+    # Code that may cause error
+except:
+    # Handle any error
+```
+
+In this first method, no error is specified, and as such it will default to using the same code for all exceptions encountered in the program. However, this also means that you may not be able to read the error message as there is no `e` variable being assigned.
+
+Second method:
+```python
+try:
+    # Code that may cause error
+except Exception as e:
+    # Handle any error as e
+    print("Error:", e)
+```
+
+In this second method, the general `Exception` is specified, which refers to every single exception in Python. This is because for classes to be considered an Exception class, they must be a subclass of the `Exception` class. However, this time it is possible to except every exception as `e` and handle them separately.
+
+
+With the introduction to handling exceptions done, there comes the `raise` keyword. The `raise` keyword is used to throw general and also custom exceptions from within your program. This means that you are able to create your own exceptions and raise them from within your own program, which can overall be used to signal an issue with your program.
+
+An example of how the `raise` keyword is performed is as such:
+```python
+class PositiveValueError(Exception):
+	pass
+
+value = int(input("Give me a positive number: "))
+
+try:
+	if value < 0:
+		raise PositiveValueError("Expected a positive number.")
+	print("Thank you for the positive number.")
+except PositiveValueError as e:
+	print(e) # Prints 'Expected a positive number.'
+```
+
+In the following example, a custom Exception class called `PositiveValueError` is first declared. Then, a value is requested from the user. If the user inputs a value less than 0, the `PositiveValueError` is raised, before being caught by the `try-except` block inside the same code. The `PositiveValueError` variable called `e` is printed, which prints out the message that you input when you first raised the error. 
+
 
 #### 12. External Libraries
 
