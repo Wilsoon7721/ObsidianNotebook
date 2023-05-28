@@ -533,9 +533,16 @@ After the file is read inside the `with` block, the file handle is closed automa
 
 #### 11. Exception Handling
 
-Errors, also known as exceptions, occur in every programming language. Simply put, they are unexpected issues that are raised by the program when it's attempting to perform its task. Unexpected exceptions that are not caught cause the program to stop. However, if you know that the exception is going to occur, and want the program to continue running or want the program to print out the error, you may use the `try-except` block in Python to achieve this purpose. 
+Errors, also known as exceptions, occur in every programming language. Simply put, they are unexpected issues that are raised by the program when it's attempting to perform its task. Unexpected exceptions that are not caught cause the program to stop. However, if you know that the exception is going to occur, and want the program to continue running or want the program to print out the error, you may use the `try-except` block in Python to achieve this purpose. It is beneficial to know that different scenarios may cause the same error, so you should not tie one specific error to only one scenario.
 
-A 
+There are many different errors you may experience, such as:
+   1. ValueError
+   2. TypeError
+   3. FileNotFoundError
+   4. FileExistsError
+   5. IndexError
+   6. ZeroDivisionError
+   7. KeyError
 
 #### 12. External Libraries
 
