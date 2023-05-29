@@ -641,24 +641,24 @@ The top 5 most popular libraries you may find may be:
 
 Each library has their own unique features, usage methods and purpose. As such, you should take your time to find which library suits you.
 
-#### End: Conclusion and other useful things.
+#### End of Basics: Conclusion and other useful things.
 
 Over here, you will find different built-in functions that help you to achieve different functionalities, such as asking for input or getting the maximum or minimum value from an iterable.
 
-`int()`, `float()`, `str()`, `list()`, `tuple()`, `dict()`, `bool()`,`set()`, `frozenset()`, `complex()` - Used to convert a value to one of the specific type.
-`sum()` - Obtain the sum of all items inside an iterable (list, tuple, set, frozenset)
-`len()` - Obtains the length of all items inside an iterable, but can be used on other data types such as strings. If used on a string, returns the amount of characters in the string.
-`sorted()` - Returns a new iterable of the same type, by default, sorted based on natural order.
-`max()` - Returns the largest item from an iterable, or the largest of two or more parameters.
-`min()` - Returns the smallest item from an iterable, or the smallest of two or more parameters.
-`abs()` - Returns the absolute value of a number.
-`input()` - Requests an input from the user.
-`range()` - Returns a sequence of numbers within a specified range, the range is usually start-inclusive and end-exclusive.
-`type()` - Returns the data type of an object.
-`round()` - Rounds a number to a specified precision.
-`callable()` - Checks if an object can be called as a function.
-`pow()` - Returns the value of x raised to the power of y.
-`isinstance()` - Checks if an object is an instance of a specified class or any of its subclasses.
+`int()`, `float()`, `str()`, `list()`, `tuple()`, `dict()`, `bool()`,`set()`, `frozenset()`, `complex()` - Used to convert a value to one of the specific type.  
+`sum()` - Obtain the sum of all items inside an iterable (list, tuple, set, frozenset).  
+`len()` - Obtains the length of all items inside an iterable, but can be used on other data types such as strings. If used on a string, returns the amount of characters in the string.  
+`sorted()` - Returns a new iterable of the same type, by default, sorted based on natural order.  
+`max()` - Returns the largest item from an iterable, or the largest of two or more parameters.  
+`min()` - Returns the smallest item from an iterable, or the smallest of two or more parameters.  
+`abs()` - Returns the absolute value of a number.  
+`input()` - Requests an input from the user.  
+`range()` - Returns a sequence of numbers within a specified range, the range is usually start-inclusive and end-exclusive.  
+`type()` - Returns the data type of an object.  
+`round()` - Rounds a number to a specified precision.  
+`callable()` - Checks if an object can be called as a function.  
+`pow()` - Returns the value of x raised to the power of y.  
+`isinstance()` - Checks if an object is an instance of a specified class or any of its subclasses.  
 
 These are still just some of the built-in functions, and there are a ton more. As such, whenever you are trying to accomplish something, feel free to Google the answers online, which may let you learn new functions as well.
 
