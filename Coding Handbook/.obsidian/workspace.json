@@ -43,8 +43,7 @@
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -110,7 +109,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Introduction to Linux (Ubuntu).md",
+                "file": "Python Programming.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +126,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Introduction to Linux (Ubuntu).md",
+                "file": "Python Programming.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -150,7 +149,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Introduction to Linux (Ubuntu).md"
+                "file": "Python Programming.md"
               }
             }
           }
@@ -171,7 +170,7 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "7a1edfec14332d85",
+  "active": "93c5de9c41ccf5b1",
   "lastOpenFiles": [
     "Object-Oriented Programming.md",
     "Introduction to Linux (Ubuntu).md",

@@ -124,7 +124,9 @@ This logic applies to sets, lists, and tuples in Python, and is used in many pop
 
 **dict**: Dictionaries can be created with curly brackets (`{ }`). However, a list of key-value pairs can also be passed to the built-in `dict()` function to create a dictionary out of the existing data. Example: `my_dict = dict([('a', 1), ('b', 2)])` passes a list of two tuples into the dictionary, which is effectively a list of key-value pairs.
 
-**set**: Sets can be created using the built-in `set()` function. An iterable such as a list or tuple should be passed to the `set()` function to create a set out of the existing data present.
+**set**: Sets can also be created using curly brackets (`{ }`), or using the built-in `set()` function. It comes down to the syntax within the curly brackets for Python to differentiate between a set and dictionary. If there are `key:value` pairs within the brackets, Python will infer the object as a dictionary. However, if the object is created similar to a list like this: `{'a', 'b', 'c', 'd'}`, Python will infer the object as a set. 
+
+However, when creating a set using the `set()` function, an iterable such as a list or tuple should be passed to the `set()` function to create a set out of the existing data present.
 
 **frozenset**: Frozen sets can be created using the built-in `frozenset()` function. Similar to `set()`, an iterable such as a list or tuple should be passed to the `frozenset()` function to create an immutable set out of the existing data present.
 
